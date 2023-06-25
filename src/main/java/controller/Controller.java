@@ -1,7 +1,7 @@
 package controller;
 
 import lombok.AllArgsConstructor;
-import service.MainService;
+import service.MainPageService;
 import view.View;
 
 import java.util.Scanner;
@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Controller {
     private final View view;
     private final ModelState modelState;
-    private final MainService mainService;
+    private final MainPageService mainPageService;
 
     public void start() {
         Scanner scanner = new Scanner(System.in);
@@ -18,9 +18,9 @@ public class Controller {
             scrollPage(); // 페이지 스크롤
             showCurrentPage(); // 현재 페이지 출력
             System.out.print("입력 : ");
-            String input = scanner.next(); // 유저 입력
+            String input = scanner.next(); // 키보드를 통해 명령값 입력
             if (input.equals("!exit")) return; // 프로그램 종료
-            else doWorkWithInput(input); // 입력 값 수행
+            else doUseCase(input); // 비즈니스 로직 수행
         }
     }
 
@@ -30,11 +30,11 @@ public class Controller {
         }
     }
 
-    public void showCurrentPage() {
+    private void showCurrentPage() {
         view.showView(modelState.getCurrentCart());
     }
 
-    private void doWorkWithInput(String input) {
-        mainService.doUseCase(input);
+    private void doUseCase(String input) {
+        mainPageService.doUseCase(input);
     }
 }
