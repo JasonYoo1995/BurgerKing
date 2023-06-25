@@ -13,9 +13,9 @@ import view.page.MainPage;
 public class InitializeBean {
     private final ViewState viewState = new ViewState();
     private final MainPage mainPage = new MainPage();
-    private final View view = new View(viewState, mainPage);
+    private final View view = new View(mainPage);
     private final ModelState modelState = new ModelState();
     private final Database database = new Database();
-    private final MainService mainService = new MainService(view, modelState, database);
-    private final Controller controller = new Controller(viewState, view, modelState, database, mainService);
+    private final MainService mainService = new MainService();
+    private final Controller controller = new Controller(view, modelState,  mainService);
 }

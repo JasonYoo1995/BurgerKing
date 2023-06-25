@@ -1,19 +1,15 @@
 package controller;
 
-import db.Database;
 import lombok.AllArgsConstructor;
 import service.MainService;
 import view.View;
-import view.ViewState;
 
 import java.util.Scanner;
 
 @AllArgsConstructor
 public class Controller {
-    private final ViewState viewState;
     private final View view;
     private final ModelState modelState;
-    private final Database database;
     private final MainService mainService;
 
     public void start() {

@@ -6,7 +6,6 @@ import view.page.MainPage;
 
 @AllArgsConstructor
 public class View {
-    private final ViewState viewState;
     private final MainPage mainPage;
 
     public void showView(Cart cart) {
