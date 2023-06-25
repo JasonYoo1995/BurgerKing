@@ -1,12 +1,13 @@
 package view;
 
 import domain.Cart;
+import lombok.AllArgsConstructor;
 import view.page.MainPage;
 
+@AllArgsConstructor
 public class View {
-    private PageId currentPageId;
-
-    private final MainPage mainPage = new MainPage();
+    private final ViewState viewState;
+    private final MainPage mainPage;
 
     public void showView(Cart cart) {
         String viewString = mainPage.getContent(cart);
